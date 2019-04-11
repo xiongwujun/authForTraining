@@ -2,7 +2,6 @@ package com.gdhengdian.auth.mapper;
 
 import com.gdhengdian.auth.model.Token;
 import org.apache.ibatis.annotations.*;
-import org.apache.ibatis.type.JdbcType;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

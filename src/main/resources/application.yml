@@ -1,7 +1,7 @@
 spring:
   datasource:
     username: root
-    password: root
+    password: xwjun
     url: jdbc:mysql://localhost:3306/hd_auth?useUnicode=true&characterEncoding=utf8&useSSL=false
     druid:
       min-idle: 1
@@ -9,7 +9,7 @@ spring:
       initial-size: 1
   redis:
     database: 1
-    host: localhost
+    host: 192.168.24.210
     port: 6379
   cache:
     type: redis

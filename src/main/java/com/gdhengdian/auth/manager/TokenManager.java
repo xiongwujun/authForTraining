@@ -18,7 +18,7 @@ public interface TokenManager {
      * @return 受影响的行数
      * @throws AuthException 插入重复数据异常
      */
-    Integer batchSaveTokens(List<Token> tokens) throws AuthException;
+    Boolean batchSaveTokens(List<Token> tokens) throws AuthException;
 
     /**
      * 根据账号密码获得用户令牌
@@ -52,7 +52,7 @@ public interface TokenManager {
      * @param token 用户令牌Id和访问令牌ID
      * @return 用户令牌ID
      */
-    Integer saveAccessTokenIdByTokenId(Token token);
+    Token saveAccessTokenIdByTokenId(Token token);
 
 
     /**

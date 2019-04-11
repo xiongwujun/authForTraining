@@ -25,23 +25,28 @@ public class HttpRespond<T> {
         this.message = message;
     }
 
-    public static HttpRespond badRequest() {
+    @SuppressWarnings("rawtypes")
+	public static HttpRespond badRequest() {
         return new HttpRespond(HttpStateEnum.BAD_REQUEST);
     }
 
-    public static HttpRespond unauthorized() {
+    @SuppressWarnings("rawtypes")
+	public static HttpRespond unauthorized() {
         return new HttpRespond(HttpStateEnum.UNAUTHORIZED);
     }
 
-    public static HttpRespond notFount() {
+    @SuppressWarnings("rawtypes")
+	public static HttpRespond notFount() {
         return new HttpRespond(HttpStateEnum.NOT_FOUND);
     }
 
-    public static HttpRespond success() {
+    @SuppressWarnings("rawtypes")
+	public static HttpRespond success() {
         return new HttpRespond(HttpStateEnum.SUCCESS);
     }
 
-    public static HttpRespond authFail(AuthMessage message) {
+    @SuppressWarnings("rawtypes")
+	public static HttpRespond authFail(AuthMessage message) {
         return new HttpRespond(message.getStatus(), message.getMessage());
     }
 
@@ -61,11 +66,13 @@ public class HttpRespond<T> {
         this.accessToken = accessToken;
     }
 
-    public static HttpRespond unknownException() {
+    @SuppressWarnings("rawtypes")
+	public static HttpRespond unknownException() {
         return new HttpRespond(HttpStateEnum.UNKNOWN_EXCEPTION);
     }
 
-    public static HttpRespond fileFormatException() {
+    @SuppressWarnings("rawtypes")
+	public static HttpRespond fileFormatException() {
         return new HttpRespond(HttpStateEnum.FILE_FORMAT_ERROR);
 
     }

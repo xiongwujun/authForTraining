@@ -34,7 +34,7 @@ public enum HttpStateEnum {
     /**
      * 未知错误
      */
-    UNKNOWN_EXCEPTION(500, "服务器崩溃了，请稍后再试"),
+    UNKNOWN_EXCEPTION(500, "网络异常，请稍后再试"),
     /**
      * 文件内容格式不正确
      */

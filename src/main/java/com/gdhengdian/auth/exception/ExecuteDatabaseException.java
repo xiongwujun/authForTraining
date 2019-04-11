@@ -2,15 +2,11 @@ package com.gdhengdian.auth.exception;
 
 import com.gdhengdian.auth.common.HttpStateEnum;
 
-/**
- * @author junmov guoyancheng@junmov.cn
- * @date 2018-10-11
- */
 @SuppressWarnings("serial")
-public class AuthException extends RuntimeException {
-    private HttpStateEnum httpState;
+public class ExecuteDatabaseException extends RuntimeException{
+	private HttpStateEnum httpState;
 
-    public AuthException(HttpStateEnum httpState) {
+    public ExecuteDatabaseException(HttpStateEnum httpState) {
         super();
         this.httpState = httpState;
     }

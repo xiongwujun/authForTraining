@@ -9,6 +9,7 @@ import java.io.Serializable;
  * @author junmov guoyancheng@junmov.cn
  * @date 2018-10-10
  */
+@SuppressWarnings("serial")
 public class Token implements Serializable {
     /**
      * id 主键

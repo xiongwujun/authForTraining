@@ -23,4 +23,5 @@ public final class ApiConstant {
     public static final String SCORE = "/v1/api/scores";
     public static final String SCORE_FILE = "/v1/api/scores/file";
     public static final String TASKS_FILE = "/v1/api/tasks/file";
+    public static final String CONTAINER_MESSAGE = "/v1/api/message";
 }

@@ -47,7 +47,7 @@ public class AuthController {
     }
 
     /**
-     * 授权
+     * 判断传入的token有没有权限执行
      *
      * @param accessToken 权限申请者
      * @param authCode    权限代码
