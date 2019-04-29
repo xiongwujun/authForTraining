@@ -1,5 +1,15 @@
 package com.gdhengdian.auth.service;
 
+import java.util.List;
+import java.util.Objects;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gdhengdian.auth.common.AuthCodeConstant;
 import com.gdhengdian.auth.common.AuthMessage;
 import com.gdhengdian.auth.common.HttpStateEnum;
@@ -7,14 +17,7 @@ import com.gdhengdian.auth.common.RoleConstant;
 import com.gdhengdian.auth.manager.AuthManager;
 import com.gdhengdian.auth.manager.TokenManager;
 import com.gdhengdian.auth.mapper.TokenMapper;
-import com.gdhengdian.auth.model.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Objects;
+import com.gdhengdian.auth.model.Token;
 
 /**
  * @author junmov guoyancheng@junmov.cn
@@ -46,24 +49,40 @@ public class AuthServiceImpl implements AuthService {
 		if (hasNull) {
 			return AuthMessage.badRequest();
 		}
-		// 2. 验证是否正确并讲结果放入缓存，这是第一次登陆，还没有token
+		// 2. 验证是否正确并讲结果放入缓存，这是第一次登陆，还没有token，也有可能没有退出，此时还是有token的
 		Token userTypeAndId = tokenManager.getTokenByUsernameAndPassword(username, password);
 		if (userTypeAndId == null) {
 			return new AuthMessage(HttpStateEnum.USERNAME_OR_PASSWORD_ERROR, null);
 		}
+		//有
+		if(userTypeAndId.getAccessTokenId()!=null) {
+			tokenManager.removeAccessTokenIdByTokenId(userTypeAndId, userTypeAndId.getAccessTokenId());
+		}
 		// 4. 创建新的访问令牌并放入缓存
 		String accessTokenId = authManager.createAccessTokenId();
 		String accessToken = authManager.createAccessTokenByAccessTokenId(accessTokenId);
+		//调用缓存层去更新缓存
+		userTypeAndId.setAccessTokenId(accessTokenId);
 		tokenManager.saveAccessTokenIdByTokenId(userTypeAndId);
 		int success = mapper.updateAccessTokenIdByTokenId(userTypeAndId);
 		if (success == 0) {
 			return new AuthMessage(HttpStateEnum.UNKNOWN_EXCEPTION, null);
 		}
-		//调用缓存层去更新缓存
-		userTypeAndId.setAccessTokenId(accessTokenId);
 		LOGGER.info("id为{}类型为{}的用户登录成功", userTypeAndId.getId(), userTypeAndId.getType());
 		// 5. 返回用户令牌，和成功状态码
-		return AuthMessage.success(accessToken);
+		AuthMessage authMessage=new AuthMessage();
+		authMessage.setStatus(200);
+		authMessage.setAccessToken(accessToken);
+		ObjectMapper om=new ObjectMapper();
+		String jsonObject;
+		try {
+			jsonObject = om.writeValueAsString(userTypeAndId);
+		} catch (JsonProcessingException e) {
+			return AuthMessage.badRequest();
+		}
+		//把用户类型也返回过去
+		authMessage.setMessage(jsonObject);
+		return authMessage;
 	}
 
 	@Override
@@ -227,5 +246,27 @@ public class AuthServiceImpl implements AuthService {
 			}
 		}
 		return false;
+	}
+	/**
+	 * 删除用户
+	 */
+	@Override
+	public AuthMessage deleteUser(String userId) {
+		if(userId==null || "".equals(userId)) {
+			return AuthMessage.badRequest();
+		}
+		Token tokenByUserId = mapper.getTokenByUserId(userId);
+		if(tokenByUserId==null) {
+			//说明此ID用户没有在授权中心注册，不需要删除
+			return AuthMessage.success(null); 
+		}
+		if(tokenByUserId.getAccessTokenId()!=null) {
+			tokenManager.deleteAccessTokenIdCache(tokenByUserId.getAccessTokenId());
+		}
+		int result = mapper.deleteUserTokenById(userId);
+		if(result==1) {
+			return AuthMessage.success(null);
+		}
+		return AuthMessage.badRequest();
 	}
 }

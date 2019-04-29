@@ -57,4 +57,10 @@ public interface AuthService {
      * @return 是否成功
      */
     AuthMessage saveUserTokens(String accessToken, List<Token> tokenVoList);
+    /**
+     * 删除用户
+     * @param userId 用户ID
+     * @return
+     */
+    AuthMessage deleteUser(String userId);
 }

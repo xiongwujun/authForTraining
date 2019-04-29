@@ -15,7 +15,7 @@ public interface TokenManager {
      * 添加新的用户令牌
      *
      * @param tokens 用户令牌列表
-     * @return 受影响的行数
+     * @return 是否成功添加
      * @throws AuthException 插入重复数据异常
      */
     Boolean batchSaveTokens(List<Token> tokens) throws AuthException;
@@ -71,4 +71,9 @@ public interface TokenManager {
      * @return id和用户类型
      */
     Token getUserTypeAndIdByUsername(String username);
+    /**
+     * 删除用户访问令牌的缓存
+     * @param accessTokenId 用户访问令牌
+     */
+    void deleteAccessTokenIdCache(String accessTokenId);
 }

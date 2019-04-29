@@ -74,4 +74,9 @@ public class TokenManagerImpl implements TokenManager {
     public Token getUserTypeAndIdByUsername(String username) {
         return mapper.getUserTokenByUsername(username);
     }
+    @CacheEvict(key = "#accessTokenId", value = "token")
+	@Override
+	public void deleteAccessTokenIdCache(String accessTokenId) {
+    	System.out.println("删除tokenID为{}缓存成功");
+	}
 }

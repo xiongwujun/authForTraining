@@ -59,7 +59,6 @@ public class AuthController {
         if (accessToken == null || "null".equals(accessToken) || authCode == null) {
             return AuthMessage.badRequest();
         }
-        System.out.println(accessToken + " " + authCode);
         return authService.accredit(accessToken, authCode);
     }
 
@@ -110,5 +109,19 @@ public class AuthController {
         String username = resetPasswordAo.getUsername();
         return authService.resetPassword(accessToken, username, password);
     }
-
+    /**
+     * 删除用户
+     * @param userId 用户Id
+     * @return
+     */
+    @DeleteMapping(ApiConstant.TOKENS+"/{userId}")
+    public AuthMessage deleteUserById(@PathVariable String userId) {
+        if (userId == null || "null".equals(userId) ) {
+            return AuthMessage.badRequest();
+        }
+        return authService.deleteUser(userId);
+    }
+    
+    
+    
 }
