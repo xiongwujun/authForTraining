@@ -61,7 +61,7 @@ public interface TokenMapper {
 	 * @return 用户令牌
 	 */
 	@Select({
-		"SELECT id, type FROM token WHERE access_token_id = #{accessTokenId}"
+		"SELECT id, type ,username FROM token WHERE access_token_id = #{accessTokenId}"
 	})
 	Token getUserTokenByAccessTokenId(String accessTokenId);
 
@@ -83,7 +83,7 @@ public interface TokenMapper {
 	 * @return id和用户类型
 	 */
 	@Select({
-		"SELECT id,type FROM token WHERE username = #{username}"
+		"SELECT id,type,access_token_id FROM token WHERE username = #{username}"
 	})
 	Token getUserTokenByUsername(String username);
 	/**

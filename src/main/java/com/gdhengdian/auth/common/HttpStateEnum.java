@@ -20,6 +20,10 @@ public enum HttpStateEnum {
      */
     UNAUTHORIZED(401, "您未获得访问权限"),
     /**
+     * 认证失败，没有权限或权限已过期
+     */
+    FORBIDDEN(403, "权限不足"),
+    /**
      * 账号或密码错误
      */
     USERNAME_OR_PASSWORD_ERROR(402, "您需要输入正确的账号或密码"),

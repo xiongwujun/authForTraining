@@ -152,14 +152,20 @@ public class AuthServiceImpl implements AuthService {
 		}
 		//再去判断原用户密码是否正确
 		// 2.2 获取被执行者的用户类型、id
-		Token targetUserType = tokenManager.getTokenByUsernameAndPassword(username, password);
+		
+		Token targetUserType = tokenManager.getUserTypeAndIdByUsername(username);
+//		Token targetUserType = tokenManager.getTokenByUsernameAndPassword(username, password);
 		if (targetUserType == null) {
-			return new AuthMessage(HttpStateEnum.USERNAME_OR_PASSWORD_ERROR, null);
+			return new AuthMessage(HttpStateEnum.USERNAME_OR_PASSWORD_ERROR, accessToken);
 		}
 		// 2.3 判断能否执行
 		int run = 0;
 		//如果是管理员
 		if (RoleConstant.ADMIN == userTypeAndId.getType()) {
+			//被更改用户也是管理员类型，且不是同一个管理员，则拒绝修改
+			if(RoleConstant.ADMIN == targetUserType.getType() && !(username.equals(userTypeAndId.getUsername()))) {
+				return new AuthMessage(HttpStateEnum.FORBIDDEN, accessToken);
+			}
 			run = 1;
 		} else {
 			//都是同一类型
@@ -169,16 +175,16 @@ public class AuthServiceImpl implements AuthService {
 		}
 		// 权限判断完毕,更新密码
 		if (run == 0) {
-			return new AuthMessage(HttpStateEnum.UNAUTHORIZED, null);
+			return new AuthMessage(HttpStateEnum.FORBIDDEN, accessToken);
 		}
 		Integer success = tokenManager.updatePassword(username, password);
 		if (success == 0) {
-			return new AuthMessage(HttpStateEnum.UNKNOWN_EXCEPTION, null);
+			return new AuthMessage(HttpStateEnum.UNKNOWN_EXCEPTION, accessToken);
 		}
 		LOGGER.info("id为{}的用户给id为{}的用户重置密码成功", userTypeAndId.getId(), targetUserType.getId());
 
 		//如果这个账号里面已经有token值，删除缓存，并且将这个数据表中的token设置为null
-		if (targetUserType.getAccessTokenId() != null) {
+		if (targetUserType.getAccessTokenId() != null ) {
 			int i = tokenManager.removeAccessTokenIdByTokenId(targetUserType, targetUserType.getAccessTokenId());
 			if (i > 0) {
 				LOGGER.info("id为{}的用户已被强制下线", targetUserType.getId());
@@ -269,4 +275,5 @@ public class AuthServiceImpl implements AuthService {
 		}
 		return AuthMessage.badRequest();
 	}
+	
 }
