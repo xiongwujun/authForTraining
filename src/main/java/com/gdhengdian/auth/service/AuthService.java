@@ -59,10 +59,10 @@ public interface AuthService {
     AuthMessage saveUserTokens(String accessToken, List<Token> tokenVoList);
     /**
      * 删除用户
-     * @param userId 用户ID
+     * @param userId 用户名字
      * @return
      */
-    AuthMessage deleteUser(String userId);
+    AuthMessage deleteUser(String userName);
     
     
 }

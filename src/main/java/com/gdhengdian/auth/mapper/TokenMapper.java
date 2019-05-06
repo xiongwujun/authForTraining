@@ -95,13 +95,4 @@ public interface TokenMapper {
 		"DELETE FROM token WHERE id = #{userId}"
 	})
 	int deleteUserTokenById(String userId);
-	/**
-	 * 根据ID查找用户的访问令牌
-	 * @param userId 用户ID
-	 * @return
-	 */
-	@Select({
-		"SELECT id, access_token_id FROM token WHERE id = #{userId}"
-	})
-	Token getTokenByUserId(String userId);
 }

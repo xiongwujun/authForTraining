@@ -261,7 +261,7 @@ public class AuthServiceImpl implements AuthService {
 		if(userId==null || "".equals(userId)) {
 			return AuthMessage.badRequest();
 		}
-		Token tokenByUserId = mapper.getTokenByUserId(userId);
+		Token tokenByUserId = mapper.getUserTokenByUsername(userId);
 		if(tokenByUserId==null) {
 			//说明此ID用户没有在授权中心注册，不需要删除
 			return AuthMessage.success(null); 
@@ -269,7 +269,7 @@ public class AuthServiceImpl implements AuthService {
 		if(tokenByUserId.getAccessTokenId()!=null) {
 			tokenManager.deleteAccessTokenIdCache(tokenByUserId.getAccessTokenId());
 		}
-		int result = mapper.deleteUserTokenById(userId);
+		int result = mapper.deleteUserTokenById(tokenByUserId.getId().toString());
 		if(result==1) {
 			return AuthMessage.success(null);
 		}
