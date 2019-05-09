@@ -74,7 +74,7 @@ public final class AuthCodeConstant {
     public final static int LIST_TASKS = 706;
     public final static int GET_TASK = 305;
     public final static int ADD_TASK = 102;
-    public static final int DELETE_TASK = 417;
+    public static final int DELETE_TASK = 217;
     public static final int UPDATE_TASK = 103;
 
     /**
