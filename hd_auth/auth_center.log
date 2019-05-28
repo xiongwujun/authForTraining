@@ -1,2 +1,108 @@
-2019-05-09 09:17:05 ERROR 15680 --- [http-nio-8080-exec-10] c.g.a.exception.GlobalExceptionHandler   : 授权中点发生异常，异常原因是:您未获得访问权限
-2019-05-09 09:17:07  WARN 15680 --- [http-nio-8080-exec-10] .m.m.a.ExceptionHandlerExceptionResolver : Resolved [com.gdhengdian.auth.exception.AuthException]
+2019-05-28 09:05:28 ERROR 19856 --- [http-nio-8080-exec-1] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.23.210:6379] with root cause
+
+java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[na:1.8.0_31]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716) ~[na:1.8.0_31]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327) ~[netty-transport-4.1.29.Final.jar:4.1.29.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) ~[netty-transport-4.1.29.Final.jar:4.1.29.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:616) ~[netty-transport-4.1.29.Final.jar:4.1.29.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:563) ~[netty-transport-4.1.29.Final.jar:4.1.29.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:480) ~[netty-transport-4.1.29.Final.jar:4.1.29.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:442) ~[netty-transport-4.1.29.Final.jar:4.1.29.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884) ~[netty-common-4.1.29.Final.jar:4.1.29.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.29.Final.jar:4.1.29.Final]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_31]
+
+2019-05-28 09:06:17 ERROR 19856 --- [http-nio-8080-exec-2] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.data.redis.RedisConnectionFailureException: Unable to connect to Redis; nested exception is io.lettuce.core.RedisConnectionException: Unable to connect to 192.168.23.210:6379] with root cause
+
+java.net.ConnectException: Connection refused: no further information
+	at sun.nio.ch.SocketChannelImpl.checkConnect(Native Method) ~[na:1.8.0_31]
+	at sun.nio.ch.SocketChannelImpl.finishConnect(SocketChannelImpl.java:716) ~[na:1.8.0_31]
+	at io.netty.channel.socket.nio.NioSocketChannel.doFinishConnect(NioSocketChannel.java:327) ~[netty-transport-4.1.29.Final.jar:4.1.29.Final]
+	at io.netty.channel.nio.AbstractNioChannel$AbstractNioUnsafe.finishConnect(AbstractNioChannel.java:340) ~[netty-transport-4.1.29.Final.jar:4.1.29.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKey(NioEventLoop.java:616) ~[netty-transport-4.1.29.Final.jar:4.1.29.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeysOptimized(NioEventLoop.java:563) ~[netty-transport-4.1.29.Final.jar:4.1.29.Final]
+	at io.netty.channel.nio.NioEventLoop.processSelectedKeys(NioEventLoop.java:480) ~[netty-transport-4.1.29.Final.jar:4.1.29.Final]
+	at io.netty.channel.nio.NioEventLoop.run(NioEventLoop.java:442) ~[netty-transport-4.1.29.Final.jar:4.1.29.Final]
+	at io.netty.util.concurrent.SingleThreadEventExecutor$5.run(SingleThreadEventExecutor.java:884) ~[netty-common-4.1.29.Final.jar:4.1.29.Final]
+	at io.netty.util.concurrent.FastThreadLocalRunnable.run(FastThreadLocalRunnable.java:30) ~[netty-common-4.1.29.Final.jar:4.1.29.Final]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_31]
+
+2019-05-28 21:32:18  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:32:31  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:32:41  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:32:51  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:33:02  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:33:12  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:33:22  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:33:32  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:33:42  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:33:53  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:34:04  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:34:16  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:34:31  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:34:49  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:35:15  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:35:55  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:36:36  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:37:16  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:37:56  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:38:36  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:39:16  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:39:56  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:40:36  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:41:16  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:41:56  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:42:36  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:43:17  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:43:57  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:44:37  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:45:17  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:45:57  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:46:37  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:47:17  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:47:57  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:48:37  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:49:17  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:49:58  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:50:38  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:51:18  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:51:58  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:52:38  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:53:18  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:53:58  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:54:38  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:55:18  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:55:58  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:56:39  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:57:19  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:57:59  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:58:39  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:59:19  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 21:59:59  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:00:39  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:01:19  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:01:59  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:02:40  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:03:20  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:04:00  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:04:40  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:05:20  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:06:00  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:06:40  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:07:20  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:08:00  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:08:40  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:09:21  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:10:01  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:10:41  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:11:21  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:12:01  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:12:41  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:13:21  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:14:01  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:14:41  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:15:22  WARN 19856 --- [lettuce-nioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:16:02  WARN 19856 --- [lettuce-nioEventLoop-4-3] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:16:42  WARN 19856 --- [lettuce-nioEventLoop-4-4] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: io.netty.channel.ConnectTimeoutException: connection timed out: /192.168.23.210:6379
+2019-05-28 22:17:14  WARN 19856 --- [lettuce-nioEventLoop-4-1] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect: java.util.concurrent.CancellationException

@@ -1,0 +1,3 @@
+com\gdhengdian\auth\mapper\TokenMapperTest.class
+com\gdhengdian\auth\service\AuthServiceTest.class
+com\gdhengdian\auth\AuthApplicationTests.class
